@@ -1,0 +1,8 @@
+g++ menu.cpp "nombre".cpp -o programa
+
+ejemplo: 
+g++ menu.cpp finalizar.cpp modificar_datos.cpp -o programa
+g++ *.cpp -o programa
+
+para ejecutar el programa (ejecutable):
+.\programa

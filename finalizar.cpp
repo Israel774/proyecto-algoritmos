@@ -17,7 +17,7 @@ void finalizarSistema() {
     cout << "______________________________________________________\n";
     
     char confirmacion;
-    cout << "¿Desea confirmar la finalizacion y reinicio del ciclo? (S/N): ";
+    cout << "ï¿½Desea confirmar la finalizacion y reinicio del ciclo? (S/N): ";
     cin >> confirmacion;
 
     if (confirmacion == 'S' || confirmacion == 's') {
@@ -34,13 +34,13 @@ void finalizarSistema() {
         cout << "\n[CANCELADO] Proceso de finalizacion cancelado.\n";
     }
 }
-int main() {
+// int main() {
     
-    finalizarSistema();
+//     finalizarSistema();
     
-    cout << "\n--- Verificacion del Main ---";
-    cout << "\nTotal de estudiantes en el sistema ahora: " << totalEstudiantes << "\n\n";
+//     cout << "\n--- Verificacion del Main ---";
+//     cout << "\nTotal de estudiantes en el sistema ahora: " << totalEstudiantes << "\n\n";
     
-    system("pause"); 
-    return 0;
-}
+//     system("pause"); 
+//     return 0;
+// }

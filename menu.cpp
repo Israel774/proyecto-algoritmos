@@ -1,17 +1,21 @@
 #include <iostream>
 #include <cstdlib>
+#include "modificar_datos.h"
+#include "finalizar.h"
+#include <windows.h>
 
 using namespace std;
 
-void ingresarEstudiantes();
-void eliminarDelSistema();
-void modificarDatosEstudiantes();
-void consultarEstudiantes();
-void ingresarNotas();
-void reportes();
-void finalizarSistema();
+// void ingresarEstudiantes();
+// void eliminarDelSistema();
+// void modificarDatosEstudiantes();
+// void consultarEstudiantes();
+// void ingresarNotas();
+// void reportes();
+// void finalizarSistema();
 
 void mostrarMenu() {
+    SetConsoleOutputCP(CP_UTF8);
     int opcion = 0;
     
     do {
@@ -25,7 +29,7 @@ void mostrarMenu() {
         cout << " 4. CONSULTAR ESTUDIANTES" <<endl;
         cout << " 5. INGRESAR NOTAS" <<endl;
         cout << " 6. REPORTES" <<endl;
-        cout << " 7. FINALIZAR SISTEMA" <<endl;
+        cout << " 7. FINALIZAR CICLO" <<endl;
         cout << " 8. SALIR" <<endl;
         cout << "----------------------------------------------------" <<endl;
         cout << " Seleccione una opcion [1-8]: ";
@@ -49,6 +53,7 @@ void mostrarMenu() {
                 break;
             case 3:
                 cout << "--- MODIFICAR DATOS DE ESTUDIANTES ---\n";
+                modificarDatosEstudiantes();
                 break;
             case 4:
                 cout << "--- CONSULTAR ESTUDIANTES ---\n";
@@ -60,7 +65,8 @@ void mostrarMenu() {
                 cout << "--- REPORTES ---\n";
                 break;
             case 7:
-                cout << "--- FINALIZAR SISTEMA ---\n";
+                cout << "--- FINALIZAR CICLO ---\n";
+                finalizarSistema();
                 break;
             case 8:
                 cout << "\nSaliendo del sistema...\n";
