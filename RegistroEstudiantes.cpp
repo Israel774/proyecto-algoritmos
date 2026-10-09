@@ -29,18 +29,44 @@ string generarCarnetAutomatico() {
   return ss.str();
 }
 
+
+
 string formatearFechaString(const chrono::system_clock::time_point &fecha) {
-  time_t tiempoConvertido = chrono::system_clock::to_time_t(fecha);
-  tm tiempoLocal;
-#if defined(_MSC_VER)
-  localtime_s(&tiempoLocal, &tiempoConvertido);
+    time_t tiempoConvertido = chrono::system_clock::to_time_t(fecha);
+    tm tiempoLocal{};
+
+#if defined(_WIN32) && !defined(_MSC_VER)
+    tm* resultado = localtime(&tiempoConvertido);
+
+    if (resultado != nullptr) {
+        tiempoLocal = *resultado;
+    } else {
+        return "";
+    }
+
+#elif defined(_MSC_VER)
+    if (localtime_s(&tiempoLocal, &tiempoConvertido) != 0) {
+        return "";
+    }
+
 #else
-  localtime_r(&tiempoConvertido, &tiempoLocal);
+    if (localtime_r(&tiempoConvertido, &tiempoLocal) == nullptr) {
+        return "";
+    }
 #endif
-  char bufferFecha[80];
-  strftime(bufferFecha, sizeof(bufferFecha), "%d/%m/%Y a las %H:%M hrs.",
-           &tiempoLocal);
-  return string(bufferFecha);
+
+    char bufferFecha[80];
+
+    if (strftime(
+        bufferFecha,
+        sizeof(bufferFecha),
+        "%d/%m/%Y a las %H:%M hrs.",
+        &tiempoLocal
+    ) == 0) {
+        return "";
+    }
+
+    return string(bufferFecha);
 }
 
 void mostrarFechaInscripcion(const Alumno &estudiante) {

@@ -7,3 +7,4 @@
 0007|oscar|caal|coban1|3432425|sistema|06/10/2026 a las 22:25 hrs.
 0008|mario|bocelli|agronomia|3223432|dasd|06/10/2026 a las 22:26 hrs.
 0009|Oscar Eduardo|Caal Rodriguez|Zona 12|458923845|Sistemas|06/10/2026 a las 22:29 hrs.
+0010|123|52|2|51as|3dasd|08/10/2026 a las 22:54 hrs.
